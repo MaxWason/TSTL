@@ -1,0 +1,3 @@
+self.p_INT[3] = 8 
+self.p_TREE[0] = RedBlackTree() 
+self.p_TREE[0].delete(self.p_INT[3]) 

@@ -1,0 +1,18 @@
+self.p_value[0] = 9 
+self.p_value[1] = 4 
+self.p_value[2] = 3 
+self.p_value[3] = 3 
+self.p_value[4] = 1 
+self.p_value[5] = 4 
+self.p_list[0] = [] 
+self.p_list[0].append(self.p_value[5]) 
+self.p_list[0].append(self.p_value[2]) 
+self.p_list[0].append(self.p_value[1]) 
+self.p_list[0].append(self.p_value[5]) 
+self.p_list[0].append(self.p_value[0]) 
+self.p_list[0].append(self.p_value[3]) 
+self.p_list[0].append(self.p_value[4]) 
+self.p_list[0].append(self.p_value[5]) 
+self.p_list[0].append(self.p_value[2]) 
+self.p_list[0].append(self.p_value[0]) 
+assert (bsort.bsort(self.p_list[0])) == (sorted(self.p_list[0])) 

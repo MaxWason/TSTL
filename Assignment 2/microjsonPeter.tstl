@@ -1,0 +1,82 @@
+# PETER HASCHKE
+# CS499 Assignment #2
+# HINT: --depth 300
+
+@import microjson
+
+pool: <string> 4
+pool: <int> 2
+pool: <list> 2
+pool: <dict> 2
+pool: <bool> 2
+pool: <float> 4
+pool: <utf> 2
+
+<string> := ''
+<list> := []
+<int> := <[0..20]>
+<float> := <[0..20]>
+<dict> := {}
+
+# TEST FLOATS
+<float> := float(<float>)
+
+# TEST BOOLEANS
+<bool> := True
+<bool> := False
+
+# TEST STRINGS (will not work with chr(92) or chars above 127)
+<string> += chr(<[0..91]>)
+<string> += chr(<[93..127]>)
+<string> += <['a'..'z']>
+
+# TEST INTS
+<int> += <[1..20]>
+<int> /= <[1..20]>
+<int> *= <[2..30]>
+<int> -= <[0..20]>
+
+# TEST LISTS
+<list>.append(<string>)
+<list>.append(<int>)
+<list>.append(<float>)
+<list>.extend(<list>)
+
+# TEST DICTIONARIES
+<dict>.update({<string>:<string>})
+<dict>.update({<string>:<int>})
+<dict>.update({<string>:<float>})
+
+# TEST UTF
+<utf> := unichr(<[40000..40960]>)
+
+# PRINT TESTS
+#print <string>
+#print <int>
+#print <list>
+#print <dict>
+#print <bool>
+#print <float>
+#print <utf>
+
+property: microjson.decode(microjson.encode(<string>)) == <string,1>
+property: microjson.decode(microjson.encode(<int>)) == <int,1>
+property: microjson.decode(microjson.encode(<list>)) == <list,1>
+property: microjson.decode(microjson.encode(<dict>)) == <dict,1>
+property: microjson.decode(microjson.encode(<bool>)) == <bool,1>
+property: microjson.decode(microjson.encode(None)) == None
+property: microjson.decode(microjson.encode(<float>)) == <float,1>
+property: microjson.decode(microjson.encode(<utf>)) == <utf,1>
+
+microjson.encode(<string>)
+microjson.decode(microjson.encode(<string>))
+microjson.encode(<string>.encode)
+microjson.decode(microjson.encode(<string>.encode))
+microjson.encode(<int>)
+microjson.decode(microjson.encode(<int>))
+microjson.encode(<list>)
+microjson.decode(microjson.encode(<list>))
+microjson.encode(<dict>)
+microjson.decode(microjson.encode(<dict>))
+microjson.encode(<float>)
+microjson.decode(microjson.encode(<float>))

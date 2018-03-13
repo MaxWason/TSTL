@@ -1,0 +1,24 @@
+self.p_int[3] = 7 
+self.p_int[1] = 5 
+self.p_int[0] = 5 
+self.p_bool[0] = True 
+self.p_int[2] = 9 
+self.p_node[1] = Node(self.p_int[0], self.p_bool[0]) 
+self.p_node[0] = Node(self.p_int[0], self.p_bool[0]) 
+self.p_int[0] = 7 
+self.p_node[2] = Node(self.p_int[0], self.p_bool[0]) 
+self.p_node[3] = Node(self.p_int[3], self.p_bool[0]) 
+self.p_bool[0] = False 
+self.p_int[3] = 9 
+self.p_int[0] = 8 
+self.p_tree[0] = RedBlackTree() 
+self.p_tree[0].search(self.p_node[2]) 
+self.p_tree[0].maximum() 
+self.p_tree[0].search(self.p_node[0]) 
+self.p_node[0] = Node(self.p_int[0], self.p_bool[0]) 
+self.p_bool[0] = False 
+self.p_bool[1] = False 
+self.p_int[0] = 8 
+self.p_node[2] = Node(self.p_int[0], self.p_bool[0]) 
+self.p_int[0] = 2 
+self.p_tree[0].delete(self.p_node[3])  

@@ -1,0 +1,20 @@
+self.p_INT[1] = 2 
+self.p_INT[3] = 8 
+self.p_TREE[0] = RedBlackTree() 
+self.p_TREE[0].search(self.p_INT[1]) 
+self.p_TREE[0].search(self.p_INT[3]) 
+print self.p_TREE[0] 
+self.p_INT[0] = 1 
+self.p_TREE[0].search(self.p_INT[1]) 
+self.p_TREE[0].search(self.p_INT[1]) 
+self.p_TREE[0].add(self.p_INT[1]) 
+self.p_INT[1] = 3 
+self.p_INT[2] = 0 
+self.p_TREE[0].search(self.p_INT[3]) 
+self.p_INT[3] = 3 
+self.p_TREE[0].search(self.p_INT[2]) 
+self.p_INT[2] = 6 
+print self.p_TREE[0] 
+self.p_TREE[0].add(self.p_INT[2]) 
+self.p_INT[2] = 4 
+self.p_TREE[0].delete(self.p_INT[3]) 

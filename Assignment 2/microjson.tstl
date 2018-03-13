@@ -1,0 +1,83 @@
+# CS 499
+#     Professor Alex Groce
+#     Assignment #2
+#         Mutant killing via a test harness
+#     Max Wason
+# 		  Nice and clean script for you now, not like all those messy intermediary iterations :)
+
+# HINT: --depth 300
+
+# ============================= Code Start ===============================
+
+@import microjson
+
+# Pools
+pool: <bool> 2
+pool: <int> 2
+pool: <float> 4
+pool: <string> 5
+pool: <list> 2
+pool: <dict> 2
+pool: <utf> 2
+
+
+# ============================ Assignements =================================
+
+<bool> := True
+<bool> := False
+<int> := <[0..20]>
+<float> := float(<[0..20]>)
+<string> := ''
+<list> := []
+<dict> := {}
+<utf> := unichr(<[40000..40960]>)
+
+
+# ============================= Actions ===================================
+
+
+# --- Make values more complex ---
+
+# Int Data 
+<int> *= <[2..20]>
+<int> /= <[1..10]>
+<int> += <[1..30]>
+<int> -= <[0..20]>
+
+# String Data
+# Got errors with chr(92) and chars above 127
+<string> += <['a'..'z']>
+<string> += chr(<[0..91]>)
+<string> += chr(<[93..127]>)
+
+# List Data
+<list>.append(<int>)
+<list>.append(<float>)
+<list>.append(<string>)
+<list>.extend(<list>)
+
+# Dictionary Data
+<dict>.update({<string>:<int>})
+<dict>.update({<string>:<float>})
+<dict>.update({<string>:<string>})
+
+
+# --- Test encode(decode(x)) ---
+
+microjson.decode(microjson.encode(<string>))
+microjson.decode(microjson.encode(<int>))
+microjson.decode(microjson.encode(<list>))
+microjson.decode(microjson.encode(<dict>))
+microjson.decode(microjson.encode(<float>))
+
+
+# ========================== Properties ===================================
+
+property: microjson.decode(microjson.encode(<bool>)) == <bool,1>
+property: microjson.decode(microjson.encode(<int>)) == <int,1>
+property: microjson.decode(microjson.encode(<float>)) == <float,1>
+property: microjson.decode(microjson.encode(<string>)) == <string,1>
+property: microjson.decode(microjson.encode(<list>)) == <list,1>
+property: microjson.decode(microjson.encode(<dict>)) == <dict,1>
+property: microjson.decode(microjson.encode(<utf>)) == <utf,1>
+property: microjson.decode(microjson.encode(None)) == None

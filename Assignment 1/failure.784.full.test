@@ -1,0 +1,12 @@
+self.p_INT[3] = 5 
+self.p_INT[1] = 2 
+self.p_INT[2] = 6 
+self.p_INT[0] = 8 
+self.p_TREE[0] = RedBlackTree() 
+self.p_TREE[0].add(self.p_INT[2]) 
+self.p_INT[2] = 4 
+self.p_TREE[0].minimum() 
+self.p_TREE[0].add(self.p_INT[2]) 
+self.p_INT[2] = 0 
+self.p_TREE[0].add(self.p_INT[1]) 
+self.p_TREE[0].revers_inorder_walk() 

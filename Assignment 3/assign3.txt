@@ -1,0 +1,43 @@
+In this assignment, again, you are only submitting one file, called assign3.py
+
+The file will be a modification of the assign3.py file I have placed in the files section.  The idea is simple:  you are going to write a simple test generator.
+
+The test generator must perform all actions by calling "takeAction" (and must not modify that function or the code noted as not to be modified), but otherwise you can try anything you want.  Now, your idea may not work, but what we're interested in is trying different things, even if some of them don't work well.  You might, for bragging rights, want to generate something that works well, but you won't be penalized grade-wise for a working, but poor-performing, testing approach.
+
+My assign3.py implements a random test generator, but it only runs tests of "infinite" length, it never resets.
+
+There is one (really easy) requirement:
+
+Your tester must be able, given 60 seconds of testing time, to consistently produce a failed test for the following TSTL:
+
+pool: <int> 2
+
+<int> := <[1..8]>
+~<int> += 1
+
+property: (<int> != 3)
+
+
+
+That is pretty easy!  However, my assign3.py fails even this simple test, since if it happens to pick first values for int0 and int1 that are both greater than 3, it will NEVER detect the fault.  So, for a large number of seed values, it cannot find this bug.  You'll have to at least do SOMETHING to assign3.py to avoid that.
+
+
+My suggestion is to try something creative, unusual, or odd.  A few ideas that I can suggest, of varying difficulty / likely effectiveness.
+
+- just fix my code to implement a working random tester that can restart tests, so can find the bug in simple.tstl; the caveat is that you need to figure out how to choose a length when it isn't assigned.  you could just use a fixed default, which is deda simple, but you do something clever like determine actions/second rate over the last N actions, and start a new test when tests start slowing down too much (I find this a very interesting research aveneue)
+
+- try to generate semi-exhaustive tests.  we know exhaustive testing will work badly, but what about semi-exhaustive?  for example, always try to perform an action that is "similar" to the last action you performed, or count how many times each action has been taken, and always choose the least-taken action; or try an action as different as possible.  The file assign3bfs.py shows one simple idea, implementing the "take the least taken action" idea.
+
+- do some variant on swarm testing, using the standardSwarm function, or other functions related to that, or your own swarm-like idea.  my swarm removes certain action classes (all actions that come from a certain line in the TSTL file).  what if you instead went through the _actions_ before each test and discarded some (so that you might allow int1=0 and int1=3, but not int1=2)
+
+- take coverage into account somehow -- try repeating an action if it got new coverage, or tracking which actions never get new coverage, and not taking them so often or...
+
+You are likely to want to write me when you have an idea, to see if 1) it makes sense 2) I can give some tips on implementing it.
+
+Things to watch out for:
+
+Don't run an action that is not enabled!  The template assign3.py turns on a debugging mode that should let you see if you are doing that, in your output, and will cause the test to "fail" (but it's not a real failure).
+
+sut.test() returns a reference -- changing this list can cause weird things to happen.  I suggest always copying it for any interesting operations by doing:
+
+t = list(sut.test())

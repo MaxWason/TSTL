@@ -1,0 +1,43 @@
+@from red_black_tree import *
+
+# Pools
+pool: <tree> 1
+pool: <int> 4
+pool: <node> 4
+pool: <bool> 2
+
+# Assign values
+<bool> := True
+<bool> := False
+<int> := <[0..9]>
+<node> := Node(<int>, <bool>)
+<tree> := RedBlackTree()
+
+
+# Operations
+
+# The following all seem to work okay
+# --------------------------------
+# <tree>.add(<node>)
+# <tree>.inorder_walk()
+# <tree>.reverse_inorder_walk()
+# <tree>.is_empty()
+# <tree>.search(<node>)
+# <tree>.minimum()
+# <tree>.maximum()
+
+# <tree>.successor() #Need arguments
+# <tree>.predecessor() #Need arguments
+
+# The following have errors
+# --------------------------
+# <tree>.black_height() #Node instance has no attribute .is_black (another error)
+<tree>.delete(<node>) 
+
+
+# Print for visual representation of the tree
+print <tree>
+
+
+# Property: Assume a tree must be a positive size (negative size makes no sense)
+property: <tree>.size >= 0

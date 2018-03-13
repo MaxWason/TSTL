@@ -1,0 +1,19 @@
+self.p_int[3] = 0 
+self.p_int[2] = 8 
+self.p_int[0] = 5 
+self.p_int[1] = 9 
+self.p_tree[0] = RedBlackTree() 
+self.p_bool[0] = False 
+self.p_node[1] = Node(self.p_int[2], self.p_bool[0]) 
+self.p_node[3] = Node(self.p_int[3], self.p_bool[0]) 
+self.p_int[3] = 3 
+self.p_int[2] = 7 
+self.p_bool[0] = True 
+print self.p_tree[0] 
+self.p_bool[1] = False 
+self.p_node[0] = Node(self.p_int[3], self.p_bool[0]) 
+self.p_node[2] = Node(self.p_int[1], self.p_bool[0]) 
+self.p_int[1] = 2 
+self.p_tree[0].search(self.p_node[0]) 
+self.p_int[3] = 1 
+self.p_tree[0].delete(self.p_node[2]) #no .left attribute for an integer 

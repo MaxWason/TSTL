@@ -1,0 +1,12 @@
+@import add
+
+pool: <int> 4
+source: add
+
+<int> := <[0..9]>
+<int> += 1
+<int> -= 1
+<int,2> < 5 -> <int> *= <int>
+<int> += <int>
+
+property: add.add(<int>,<int>) == add.add(<int,2>,<int,1>)

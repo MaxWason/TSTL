@@ -1,0 +1,7 @@
+self.p_TREE[0] = RedBlackTree() 
+self.p_INT[0] = 0 
+self.p_INT[1] = 5 
+self.p_TREE[0].add(self.p_INT[0]) 
+self.p_TREE[0].add(self.p_INT[1]) 
+self.p_TREE[0].add(self.p_INT[1]) 
+self.p_TREE[0].black_height() #Node instance has no attribute .is_black (one I'm supposed to find?) 

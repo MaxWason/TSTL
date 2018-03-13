@@ -1,0 +1,6 @@
+self.p_int[0] = 4 
+self.p_int[1] = 1 
+self.p_int[0] += 1 
+self.p_int[1] += 1 
+self.p_int[0] += 1 
+self.p_int[1] += 1 

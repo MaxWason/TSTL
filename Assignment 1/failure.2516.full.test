@@ -1,0 +1,29 @@
+self.p_INT[0] = 0 
+self.p_INT[3] = 0 
+self.p_INT[1] = 8 
+self.p_INT[2] = 8 
+self.p_TREE[0] = RedBlackTree() 
+self.p_TREE[0].search(self.p_INT[0]) 
+self.p_TREE[0] = RedBlackTree() 
+self.p_TREE[0].add(self.p_INT[2]) 
+self.p_TREE[0].is_empty() 
+self.p_TREE[0].is_empty() 
+self.p_INT[2] = 9 
+self.p_TREE[0].search(self.p_INT[1]) 
+self.p_TREE[0].add(self.p_INT[1]) 
+print self.p_TREE[0] 
+self.p_TREE[0].add(self.p_INT[0]) 
+self.p_INT[1] = 6 
+self.p_TREE[0].add(self.p_INT[2]) 
+self.p_INT[2] = 6 
+self.p_INT[0] = 9 
+print self.p_TREE[0] 
+self.p_TREE[0].reverse_inorder_walk() 
+self.p_TREE[0].search(self.p_INT[2]) 
+self.p_INT[2] = 1 
+self.p_TREE[0].add(self.p_INT[1]) 
+self.p_TREE[0].reverse_inorder_walk() 
+self.p_TREE[0].maximum() 
+self.p_INT[1] = 9 
+self.p_TREE[0].is_empty() 
+self.p_TREE[0].successor() 

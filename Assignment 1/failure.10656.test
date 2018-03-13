@@ -1,0 +1,3 @@
+self.p_INT[3] = 8 
+self.p_BOOL[0] = True, False 
+self.p_NODE[3] = Node(self.p_INT[3], self.p_BOOL[0]) 

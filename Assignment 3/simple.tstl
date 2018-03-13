@@ -1,0 +1,6 @@
+pool: <int> 2
+
+<int> := <[1..8]>
+~<int> += 1
+
+property: (<int> != 3)

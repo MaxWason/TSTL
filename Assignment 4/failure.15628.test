@@ -1,0 +1,17 @@
+self.p_value[0] = 6 # Changed 1 --> 5 
+self.p_value[1] = 2 # Changed 1 --> 2 
+self.p_value[2] = 8 # Changed 1 --> 2 
+self.p_value[3] = 3 # Changed 1 --> 3 
+self.p_value[4] = 7 # Changed 1 --> 4 
+self.p_list[0] = [] 
+self.p_list[0].append(self.p_value[2]) 
+self.p_list[0].append(self.p_value[4]) 
+self.p_list[0].append(self.p_value[2]) 
+self.p_list[0].append(self.p_value[2]) 
+self.p_list[0].append(self.p_value[2]) 
+self.p_list[0].append(self.p_value[1]) 
+self.p_list[0].append(self.p_value[3]) 
+self.p_list[0].append(self.p_value[0]) 
+self.p_list[0].append(self.p_value[1]) 
+self.p_list[0].append(self.p_value[2]) 
+assert (bsort.bsort(self.p_list[0])) == (sorted(self.p_list[0])) 

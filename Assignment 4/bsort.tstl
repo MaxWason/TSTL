@@ -1,0 +1,19 @@
+# Max Wason
+# Assignment 4
+# CS 499
+
+# Simply increase the pool size and add a range of options for the value.
+# The list will grow >= 10, it will try to sort, and the program will crash.
+# It consistently worked for me; let me know if you have any trouble.
+
+@import bsort
+
+pool: <value> 10 # Changed 1 --> 10
+pool: <list> 1
+
+<value> := <[1..9]> # Changed 1 --> <[1..9]>
+
+<list> := []
+<list>.append(~<value>)
+
+assert (bsort.bsort(<list>)) == (sorted(<list,1>))
